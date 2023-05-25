@@ -6,6 +6,8 @@
 // @version     1.0
 // @author      - Mistaf
 // @description replaces emojis in messages with the HTML entities to be displayed on anilist as emoji
+// @downloadURL https://raw.githubusercontent.com/Mistaf/anilist-emojis/main/EmojiReplacer.js
+// @updateURL   https://raw.githubusercontent.com/Mistaf/anilist-emojis/main/EmojiReplacer.js
 // ==/UserScript==
 
 const targetNode = document.querySelector("div#app");
