@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://anilist.co/*
 // @grant       none
-// @version     1.1
+// @version     1.2
 // @author      - Mistaf
 // @description replaces emojis in messages with the HTML entities to be displayed on anilist as emoji
 // @downloadURL https://raw.githubusercontent.com/Mistaf/anilist-emojis/main/EmojiReplacer.js
@@ -58,12 +58,13 @@ function replaceEmojis(textArea) {
         .match(
             /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g
         )
-        .forEach((match) => {
+        ?.forEach((match) => {
             textArea.value = textArea.value.replace(
                 match,
                 `&#${match.codePointAt()};`
             );
         });
+    textArea.parentElement.__vue__.$emit("input", textArea.value);
 }
 
 const observer = new MutationObserver(callback);
